@@ -1,0 +1,255 @@
+@charset 'UTF-8';
+
+
+/*common*/
+.cs-checkbox > label:before,
+.cs-radio > .r_visible {
+	border: 1px solid #ccc;
+}
+
+
+/*
+	checkbox style module
+*/
+.cs-checkbox input[type="checkbox"] {
+	visibility: hidden;
+	display: none;
+}
+
+.cs-checkbox > label {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	padding-left: 30px;
+	margin: 0;
+	line-height: 20px;
+	transition: color .3s ease-out;
+}
+
+.cs-checkbox > label.d-block {
+	display: block;
+}
+
+.cs-checkbox > label:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	margin-right: 0.8em;
+	/*line-height: 20px;*/
+	border-radius: 0;
+	background-color: #fff;
+
+	font-size: 1.2em;
+}
+
+.cs-checkbox input[type="checkbox"]:checked ~ label:before,
+.cs-checkbox label:hover:before {
+	content: '\2713';
+	width: 16px;
+	padding-left: 2px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
+	text-align: center;
+
+	line-height: 1.1;
+	color: #76232f;
+	font-weight: bold;
+}
+
+.cs-checkbox > label:hover:before {
+	color: transparent;
+	/*紐⑤컮�쇱뿉�쒕뒗 �댁젣*/
+	/*color: #d5d5d5;*/
+	text-shadow: none;
+}
+
+
+
+/*radio*/
+.cs-radio input[type=radio]:not(old) {
+	width: 0;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	font-size: 1em;
+}
+
+.cs-radio > .r_visible {
+	position: relative;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border-radius: 50em;
+	background-color: #fff;
+	vertical-align: bottom;
+}
+
+.cs-radio input[type=radio]:not(old):checked + .r_visible > span {
+	position: absolute;
+	display: block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50em;
+	background-color: #76232f;
+	top: 3px;
+	left: 3px;
+}
+
+/* radio */
+._cs-radio input[type="radio"] {
+	display: none;
+}
+._cs-radio input[type=radio]:not(old) {
+	width: 0;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	font-size: 1em;
+}
+._cs-radio input[type=radio] + .r_visible {
+	display: block;
+}
+._cs-radio input[type=radio] + .r_visible > span {
+	background-color: #FFFFFF;
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 7px 0;
+	color: #A73439; cursor: pointer;
+}
+._cs-radio input[type=radio]:not(old):checked + .r_visible > span {
+	background-color: #A73439;
+	color: #FFFFFF;
+}
+
+/* 吏��먮━�댁뼹 */
+.branch-renew .cs-checkbox input[type="checkbox"] {
+	visibility: hidden;
+	display: none;
+}
+
+.branch-renew .cs-checkbox > label {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	padding-left: 30px;
+	margin: 0;
+	line-height: 20px;
+	transition: color .3s ease-out;
+}
+
+.branch-renew .cs-checkbox > label.d-block {
+	display: block;
+}
+
+.branch-renew .cs-checkbox > label:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	margin-right: 0.8em;
+	border-radius: 0;
+	background-color: #fff;
+}
+
+.branch-renew .cs-checkbox input[type="checkbox"]:checked ~ label:before{
+	content: '';
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
+	background-image: url('/imges/i-check.png');
+	background-color: var(--primary);
+	background-repeat: no-repeat;
+	background-position: center center;
+	border: 1px solid var(--primary);
+}
+.branch-renew .cs-checkbox label:hover:before{
+	content: '';
+}
+.branch-renew .cs-checkbox > label:hover:before {
+	color: transparent;
+	text-shadow: none;
+}
+/* �띿뒪�� 泥댄겕諛뺤뒪 */
+.branch-renew .txt-checkbox input[type="checkbox"] {
+	visibility: hidden;
+	display: none;
+}
+
+.branch-renew .txt-checkbox > label {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	padding: 0.5rem 0;
+	text-align: center;
+	margin: 0;
+	line-height: 20px;
+	transition: color .3s ease-out;
+	width: 100%;
+	height: 100%;
+	display: block;
+	border: 1px solid #CCCCCC;
+	border-radius: 50em;
+}
+
+.branch-renew .txt-checkbox > label.d-block {
+	display: block;
+}
+
+.branch-renew .txt-checkbox > label:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	margin-right: 0.8em;
+	border-radius: 0;
+	background-color: #fff;
+}
+
+.branch-renew .txt-checkbox input[type="checkbox"]:checked ~ label{
+	background-color: var(--primary);
+	border: 1px solid var(--primary);
+	color: #fff;
+}
+.branch-renew .txt-checkbox label:hover:before{
+	content: '';
+}
+.branch-renew .txt-checkbox > label:hover:before {
+	color: transparent;
+	text-shadow: none;
+}
+/* radio */
+.branch-renew .radio-wrap {
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid var(--primary);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--primary);
+	overflow: hidden;
+}
+.branch-renew .radio-wrap input[name=counselGender]{
+	display: none;
+}
+.branch-renew .radio-wrap label{
+	width: 50%;
+}
+.branch-renew .radio-wrap .cs-radio {
+	padding: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 100%;
+	background: #fff;
+	cursor: pointer;
+}
+.branch-renew .radio-wrap input[id=female]:checked ~ label[for=female],
+.branch-renew .radio-wrap input[id=male]:checked ~ label[for=male]{
+	background: var(--primary);
+	color: #fff;
+}

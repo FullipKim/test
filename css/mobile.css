@@ -1,0 +1,484 @@
+@charset "UTF-8";
+
+/* 
+	main으로 들어갈 스타일 후에 정리(웹과 모바일 스타일 차이 이해 이후), 
+	이 곳은 모바일에만 쓰이는 스타일만 남김!
+*/
+
+.main_wp_b {
+	margin-top: 55px;
+}
+
+.main_tit {
+	margin-top: 1em;
+}
+
+.l_sb_wp {
+	position: absolute;
+	z-index: 1;
+	width: 70%;
+	bottom: -25px;
+	margin-left: -35%;
+	left: 50%;
+}
+
+.m_sb .search_box,
+.m_sb .search_box input,
+.m_sb .search_box .input_group_btn > button {
+	height: 50px;
+}
+
+.search_box .input_group_btn > button {
+	width: 50px;
+	height: 100%;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.search_box .input_group_btn > button img {
+	width: 1.3rem;
+	margin: 0.2rem 0 0;
+}
+
+/*col list 2*/
+.c_2 {
+	overflow: hidden;
+}
+
+.c_2 > li {
+	float: left;
+	width: 50%;
+}
+
+/*col list-style-type:3*/
+.c_3 {
+	overflow: hidden;
+}
+
+.c_3  > li {
+	float: left;
+	width: 33.33333%;
+}
+
+/*col list 2*/
+.c_4 {
+	overflow: hidden;
+}
+
+.c_4 > li {
+	float: left;
+	width: 25%;
+}
+
+/*card list wrap*/
+.cl_wp > li {
+	padding-bottom: 30px;
+}
+
+.cl_wp > li > h3 {
+	line-height: 2em;
+}
+
+.ll {
+	background-color: #fff;
+	/*border-top: 1px solid #ccc;*/
+	border-left: 1px solid #ccc;
+}
+
+.ll  > li > a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background-color: white;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 20px 0;
+}
+
+.ll.compact > li > a {
+	padding: 1em 0.5em;
+}
+
+.ll li.active a {
+	background-color: #f5f5f5;
+}
+
+.c_2.ll  > li:nth-child(1) > a,
+.c_2.ll  > li:nth-child(2) > a {
+	/*한 라인에 세개 컬럼*/
+	border-top: 1px solid #ccc;
+}
+
+.c_3.ll  > li:nth-child(1) > a,
+.c_3.ll  > li:nth-child(2) > a,
+.c_3.ll  > li:nth-child(3) > a {
+	/*한 라인에 세개 컬럼*/
+	border-top: 1px solid #ccc;
+}
+
+.c_4.ll  > li:nth-child(1) > a,
+.c_4.ll  > li:nth-child(2) > a,
+.c_4.ll  > li:nth-child(3) > a,
+.c_4.ll  > li:nth-child(4) > a {
+	/*한 라인에 네개 컬럼*/
+	border-top: 1px solid #ccc;
+}
+
+.list_b > li {
+	margin-bottom: 1rem;
+}
+
+.list_b > li:last-child {
+	margin-bottom: 0;
+}
+
+/*card component*/
+.card {
+	background-color: #fff;
+	overflow: hidden;
+}
+
+.card .sec_img {
+	/*test*/
+	background-color: #000;
+}
+
+.card .sec_img img {
+	width: 100%;
+}
+
+img.full {
+	width: 100%;
+	height: 100%;
+}
+
+.card .sec_txt {
+	position: relative;
+	padding: 1rem 1rem;
+	/*padding: 2.4rem 1rem 1rem;*/
+}
+
+.card .sec_txt_cv {
+	padding: 1rem;
+	background-color: rgba(0, 0, 0, .7);
+	color: #fff;
+}
+
+.card dt {
+	padding-bottom: 0.4em;
+}
+
+.card .sec_prc {
+	padding-top: 0.2em;
+	vertical-align: bottom;
+}
+
+.card .sec_prc .txt_num {
+	vertical-align: bottom;
+}
+
+.card .asd {
+	position: absolute;
+	bottom: -5em;
+}
+
+.card_wide {
+	position: relative;
+	width: 100%;
+	margin-bottom: 0.4rem;
+}
+
+.card_wide {
+	/*width: 100vw*/
+	height: 52vw;
+}
+
+.card_wide .sec_img {
+	height: 100%;
+}
+
+
+.card_wide .sec_txt {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 8rem 1rem 1rem;
+	color: #fff;
+}
+
+.card_wide .sec_txt_cv {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.card_csl {
+	width: 44vw;
+	/*height: 24.75vw; 16:9비율*/
+}
+
+.card_csl .sec_img {
+	/*width: 44vw; 16:9비율*/
+	height: 24.75vw;
+}
+
+.card_csl .sec_txt {
+	background-color: #fff;
+	text-align: center;
+}
+
+.card_csl .sec_txt dt {
+	font-size: 1rem;
+	padding: 0;
+}
+
+.card_csl .sec_txt .multy-ellip3 {
+	font-size: 1rem;
+	line-height: 1.4rem;
+	height: 4.2rem;
+}
+
+.card_csl .sec_txt .sec_prc {
+	padding-top: 0.4em;
+}
+
+.card_csl .sec_txt .asd {
+	top: 0.5rem;
+	right: 1rem;
+	height: 1rem;
+}
+
+.card_csl .sec_txt .circle {
+	top: -1.4rem;
+	left: 50%;
+	margin-left: -1.4rem;
+	width: 2.8rem;
+	height: 2.8rem;
+	background-color: #fff;
+}
+
+.card.horiz {
+	border-radius: 0 !important;
+	background-color: #fff;
+	width: 100%;
+}
+
+.card.horiz .sec_img {
+	float: left;
+	background-color: rgba(0, 0, 0, 0.0);
+}
+
+.card.horiz .sec_txt {
+	float: left;
+	width: 100%;
+	padding: 0 0 0 1rem;
+}
+
+.card.horiz .sec_txt .txt_sub {
+	line-height: 1.4em;
+	height: 2.8em;
+}
+
+.card.horiz.border .sec_txt {
+	padding: 0.5rem 1rem 0.2rem;
+}
+.card.horiz.border .sec_img {
+	float: right;
+}
+
+.card.border dt {
+	padding-bottom: 0;
+}
+
+/*search event page*/
+.sep_wrap {
+	width: 100%;
+	padding: 1px;
+}
+
+.sep_wrap .img_box {
+	/*동영상 스와이프 문제*/
+	position: relative;
+	/*z-index: -1;*/
+
+	width: 100%;
+	height: 52vw;
+}
+
+.sep_wrap .img_box img {
+	width: 100%;
+}
+
+.rb_box {
+	position: relative;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	/*btn height*/
+	line-height: 30px;
+}
+
+.rb_box .right_b {
+	padding-right: 6em;
+}
+
+.rb_box > button {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+
+/*list bottom line*/
+.lbl li {
+	margin-bottom: 1rem;
+	padding-bottom: 1rem;
+}
+
+.lbl > li > div {
+	margin-bottom: 0.5rem;
+}
+
+.lbl li:last-child,
+.lbl li:last-child > div {
+	border-bottom: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+
+/*cart page box*/
+.card_list_space > li {
+	margin-top: 1rem;
+}
+
+.card_list_space > li:first-child {
+	margin-top: 0;
+}
+
+.cb_t {
+	position: relative;
+	display: block;
+	margin: 0;
+	padding: 1rem 2.5rem 0.5rem 1rem;
+}
+
+.cb_t .p_right {
+	position: absolute;
+	top: 0.7rem;
+	right: 0;
+}
+
+.cb_t input[type="checkbox"] {
+	margin-top: 0.25em;
+}
+
+.cb_b {
+	padding: 0.5rem 1rem;
+}
+
+/*/img/*/
+.img_box img {
+	width: 100%;
+}
+
+.evetpop_img_size {
+	width: 345px;
+	height: 195px;
+	overflow: hidden;
+}
+
+.evetpop_img_size img {
+	width: 100%;
+}
+
+.thumb_default_wrap {
+	width: 160px;
+	height: 90px;
+	overflow: hidden;
+}
+
+img.thumb {
+	object-fit: cover;
+	vertical-align: middle;
+	text-align: center;
+}
+
+/*video*/
+.card_video_size {
+	height: 53.5vw;
+}
+
+.towEm_video_size {
+	height: 48.8vw;
+	max-height: 210px;
+}
+
+.video_wrap {
+	position: relative;
+	overflow: hidden;
+	/*background-color: #000;*/
+}
+
+.video_wrap iframe {
+	width: 100%;
+	height: 100%;
+}
+
+/*img video*/
+.thumb_full_wrap {
+	width: 100%;
+	height: 56.25vw;
+	overflow: hidden;
+}
+
+
+/*overlaye*/
+.sv_overlay_right {
+	position: absolute;
+	top: 0;
+	left: 5.7rem;
+	bottom: 0;
+	right: 0;
+}
+
+.sv_overlay_top {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 3.9rem;
+	right: 0;
+}
+
+/*게시판 뷰 : 공부하는 톡스앤필/ 공지사항*/
+.tx_ip {
+	margin: 0;
+	padding: 2rem 0;
+	width: 100%;
+	line-height: 1.4;
+	overflow: hidden;
+	word-break: break-all;
+}
+.tx_ip img {
+	max-height: none;
+	max-width: 100%;
+	height: auto !important;
+}
+.tx_ip img.clickBtn {
+	width: auto !important;
+}
+.tx_ip > iframe {
+	width: 100%;
+	height: 490px;
+}
+.iframe-auto-box > iframe {
+	display: block;
+	margin: 0 auto;
+}
+td[colspan="2"] > .tx_ip > iframe {
+	height: 482.65px;
+}
