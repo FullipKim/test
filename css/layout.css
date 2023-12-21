@@ -510,7 +510,7 @@ fix bottom
 	right: 0;
 	bottom: 0;
 	background-color: var(--primary);
-	z-index: 301;
+	z-index: 9999;
 }
 .loading-wrap .inner .txt__{
 	position: absolute;
@@ -527,7 +527,7 @@ fix bottom
 }
 /* header 헤더 */
 #headWrap{
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color: transparent;
 	width: 100%;
 	z-index: 1001!important;
 	position: static;

@@ -201,7 +201,7 @@
 .w_main_bg .iframe_wrapper {
 	position: absolute;
 	width: 100%;
-	top: 0;
+	top:-5;
 	padding-bottom: 56.25%;
 	background-size: 100% 100%;
 	background-position: center center;
@@ -211,6 +211,41 @@
 	overflow: hidden;
 	z-index: 0;
 }
+
+
+ .video-wrap {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 비율을 유지하기 위한 값 (100% / 16 * 9) */
+    }
+
+    .video-wrap video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+#muteButton {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        z-index: 9999;
+        background-color: #fff;
+        color: #333;
+        border: 1px solid #333;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+ .text-overlay {
+        position: absolute;
+        top: 40vh;
+        left: 15vw;
+        z-index: 99999;
+        color: #fff;
+    }
+
 .w_main_bg .iframe_wrapper .wideVideo {
 	width: 100%;
 	min-height: 100%;
@@ -855,7 +890,7 @@
 	color: #ffffff;
 }
 
-/* 吏��� �⑤룆 �대깽�� �앹뾽
+/* 吏��� �⑤룆 �대깽�� �앹뾽
 /*********************************************/
 .branch-event-popup-slide .bep-inner {
 	position: relative;
@@ -1067,7 +1102,7 @@
 	letter-spacing: -0.025em;
 }
 
-/* 吏��먰럹�댁� 由щ돱�� */
+/* 吏��먰럹�댁� 由щ돱�� */
 .branch-renew{
 	letter-spacing: -1px;
 }
@@ -1108,7 +1143,7 @@
 	color:#999999;
 	font-size: 1.5rem;
 }
-/* 硫붿씤諛곕꼫 */
+/* 硫붿씤諛곕꼫 */
 .branch-renew .main-banner-section{
 	position: relative;
 	max-width: 100%;
@@ -1148,7 +1183,7 @@
 .branch-renew .payment-system .reservation-sec{
 	padding: 1.7rem 14rem 1.7rem 3rem;
 }
-/* 硫붿씤 �덉빟 �섏씠吏� */
+/* 硫붿씤 �덉빟 �섏씠吏� */
 .branch-renew .reservation-sec .reser-inner{
 	width: calc(100% - 160px);
 	display: -webkit-box;
@@ -2088,7 +2123,7 @@
 	top: 0.5rem;
 	right: 0.5rem;
 }
-/* �덉빟紐⑤떖 datapicker */
+/* �덉빟紐⑤떖 datapicker */
 .branch-renew .swiperDatapicker{
 	overflow: hidden;
 	position: relative;
@@ -2166,7 +2201,7 @@
 	color: #AAAAAA;
 }
 .reser-inner .modal-wrap .time-list > li.done::after{
-	content: '�덉빟留덇컧';
+	content: '�덉빟留덇컧';
 	position: absolute;
 	top: -5px;
 	left: 0;
@@ -2179,7 +2214,7 @@
 	-ms-transform: rotate(-20deg);
 	transform: rotate(-20deg);
 }
-/* �덉빟紐⑤떖 �쇰컯�� */
+/* �덉빟紐⑤떖 �쇰컯�� */
 .reser-inner .modal-inner .content .form_box{
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -4065,7 +4100,7 @@
 	line-height: 1;
 }
 
-/* �쎄� �� 硫붾돱 */
+/* �쎄� �� 硫붾돱 */
 .__fix_area .select-wrap .down-menu {
 	position: relative;
 	width: 230px;
