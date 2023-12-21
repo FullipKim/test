@@ -38,7 +38,6 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="./site.webmanifest">
 <!-- fontawsome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <!-- css -->
@@ -51,8 +50,7 @@
 <link rel="stylesheet" media="(min-width: 0px)" href="./css/mobile.css">
 
 <script src="/common/js/prefixfree.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- <script src="/common/js/jquery-1.12.4.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <!-- swiper -->
 <link rel="stylesheet" href="/css/vendor/swiper.min.css">
@@ -139,31 +137,6 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
 
 		
 	</script>
-	<noscript>
-		<img height="1" width="1" src="https://www.facebook.com/tr?id=129198215752836&ev=PageView&noscript=1"/>
-	</noscript>
-	<!-- Facebook Pixel Code -->
-	<script>
-	  !function(f,b,e,v,n,t,s)
-	  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-	  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-	  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-	  n.queue=[];t=b.createElement(e);t.async=!0;
-	  t.src=v;s=b.getElementsByTagName(e)[0];
-	  s.parentNode.insertBefore(t,s)}(window, document,'script',
-	  'https://connect.facebook.net/en_US/fbevents.js');
-	  fbq('init', '232837521922650');
-	  fbq('track', 'PageView');
-	</script>
-	<noscript><img height="1" width="1" style="display:none"
-	  src="https://www.facebook.com/tr?id=232837521922650&ev=PageView&noscript=1"
-	/></noscript>
-	<!-- End Facebook Pixel Code -->
-	<script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
-	<script type="text/javascript">
-		  kakaoPixel('144970750963332073').pageView();
-	</script>
-
 
 <script>
 //	window.location.href = '/error.php';
@@ -209,7 +182,7 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
 </script>
 	
 <!-- 로딩화면 -->
-<div id="loadingWrap" class="loading-wrap">
+<div id="loadingWrap" class="loading-wrap" style="z-index: 999">
     <div class="inner">
         <p class="left_txt txt__"><img src="./imges/main/Beauty.png" alt=""></p>
         <p class="right_txt txt__"><img src="./imges/main/secret-key.png" alt=""></p>
@@ -220,25 +193,19 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
     const hasFunctionExecutedKey = 'hasFunctionExecuted';
 
     // 실행할 함수 정의
-    function runOnceFunction() {
-        $(window).load(function() {
-            $('#loadingWrap .left_txt').animate({left: '50%'}, 700);
-            $('#loadingWrap .right_txt').animate({right: '50%'}, 700);
-            $('#loadingWrap').delay(1500).animate({opacity: '0'}, 1200, function(){
-                $('#loadingWrap').css('display', 'none');
-            });
+    function runIntroFunction() {
+        $('#loadingWrap .left_txt').animate({left: '50%'}, 700);
+        $('#loadingWrap .right_txt').animate({right: '50%'}, 700);
+        $('#loadingWrap').delay(1500).animate({opacity: '0'}, 1200, function(){
+            $('#loadingWrap').css('display', 'none');
         });
     }
-    // 세션 스토리지에서 플래그 값을 가져오기
-    const hasFunctionExecuted = sessionStorage.getItem(hasFunctionExecutedKey);
-    // 최초 실행 여부 확인 후 함수 실행
-    if (!hasFunctionExecuted) {
-        runOnceFunction();
-        // 플래그 값을 세션 스토리지에 저장하여 다음에는 함수가 실행되지 않도록 함
-        sessionStorage.setItem(hasFunctionExecutedKey, true);
-    } else{
-        $('#loadingWrap').css('display', 'none');
-    }
+
+    // 매번 화면에 들어올 때마다 세션 스토리지 초기화
+    sessionStorage.removeItem(hasFunctionExecutedKey);
+
+    // 함수 실행
+    runIntroFunction();
 </script>
 <!-- datapicker 추가 파일 -->
 <script>
@@ -553,32 +520,31 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
     <div class="head_main">
         <div class="head_sub_bg"></div>
         <div class="nav_left">
-            <h1 class="logo">
-                <a href="index.php" class="logo-wrap">
-                    <p class="logo-img" id="logo"></p>
-                     <img src="./imges/logo_w.png" height="30vh" alt="logo" id="logo"> 
-                    <span class="logo_sub">리베리의원</span>
-                </a>
-            </h1>
-            <div class="main-menu-wrap">
-                <ul class="main_menu">
-                    <li>
-                        <a href="javascript:;" class="menu_item" onclick="depthLocation(this);">리베리</a>
-                          <ul class="sub_menu">
+			<h1 class="logo">
+				<a href="index.php" class="logo-wrap">
+					<img src="./imges/reberry2.png" height="30vh" alt="logo" id="logo">
+					<span class="logo_sub">리베리의원</span>
+				</a>
+			</h1>
+			<div class="main-menu-wrap">
+				<ul class="main_menu">
+					<li>
+						<a href="javascript:;" class="menu_item" onclick="depthLocation(this);">리베리</a>
+						<ul class="sub_menu">
 							<li><a href="#">스토리</a></li>
 							<li><a href="#">의료진 안내</a></li>
 							<li><a href="#">전후사진</a></li>
-                            <li><a href="#">리얼후기</a></li>
+							<li><a href="#">리얼후기</a></li>
 							<li><a href="#">리베리그램</a></li>
 							<li><a href="#">오시는길</a></li>
 							<li><a href="#">인재채용</a></li>
 							<li><a href="#">파트너</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="menu_item"  onclick="depthLocation(this);">고민증상</a>
-                        <ul class="sub_menu">
-                            <li><a href="#">색소</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:;" class="menu_item" onclick="depthLocation(this);">고민증상</a>
+						<ul class="sub_menu">
+							<li><a href="#">색소</a></li>
 							<li><a href="#">여드름</a></li>
 							<li><a href="#">홍조</a></li>
 							<li><a href="#">모공흉터</a></li>
@@ -587,30 +553,29 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
 							<li><a href="#">쁘띠성형</a></li>
 							<li><a href="#">S라인</a></li>
 							<li><a href="#">제모</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="menu_item" onclick="depthLocation(this);">이벤트/예약</a>
-                        <ul class="sub_menu">
-                            <li><a href="event#">이벤트</a></li>
-                            <li><a href="event#">시술예약</a></li>
-                            <li><a href="event#">상담예약</a></li>
-                            <li><a href="event#">잔여티켓팅 예약</a></li>
-                            <li><a href="event#">예약내역</a></li>
-                        </ul>
-                    </li>
+						</ul>
+					</li>
 					<li>
-                        <a href="javascript:;" class="menu_item" onclick="depthLocation(this);">맞춤추천</a>
-<!--
-                        <ul class="sub_menu">
-                            <li><a href="communityOpinion.php">칭찬/불만 접수</a></li>
-                        </ul>
--->
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
+						<a href="javascript:;" class="menu_item" onclick="depthLocation(this);">이벤트/예약</a>
+						<ul class="sub_menu">
+							<li><a href="event#">이벤트</a></li>
+							<li><a href="event#">시술예약</a></li>
+							<li><a href="event#">상담예약</a></li>
+							<li><a href="event#">잔여티켓팅 예약</a></li>
+							<li><a href="event#">예약내역</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:;" class="menu_item" onclick="depthLocation(this);">맞춤추천</a>
+						<!--
+						<ul class="sub_menu">
+							<li><a href="communityOpinion.php">칭찬/불만 접수</a></li>
+						</ul>
+						-->
+					</li>
+				</ul>
+			</div>
+		</div>        
     </div>
     <div class="head_sub" style="display:none;">
         <div class="fix_area">
@@ -704,224 +669,30 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
 </script>    <!--	top menu End	-->
 
     <main class="main-content main-wrap">
-        <form id="frmMain" name="frmMain" method="post" style="margin-top:0;margin-bottom+:0" autocomplete="off" onsubmit="return false;" onkeypress="handleKeyUp(event)">
-
-            <input type="hidden" id="clientKey"	name="clientKey"		value="live_ck_5OWRapdA8dYJmybvM9b3o1zEqZKL">
-            <input type="hidden" id="certNo" 	name="certNo" 	        value="">
-            <input type="hidden" id="certChk" 	name="certChk" 	        value="N">
-            <input type="hidden" id="reservationDate" name="reservationDate">
-            <input type="hidden" id="reservationTime" name="reservationTime"/>
-            <input type="hidden" id="reservationMobile" name="reservationMobile">
-            <input type="hidden" id="reservationMemo" name="reservationMemo" val="메인페이지 예약">
-            <input type="hidden" id="gubun" name="gubun" value="D">
-
-                            <section id="scroll-section-0" class="main-banner-section main-visual-sec payment-system">
-                    <div class="mb-width-fix">
-                        <div class="video-wrap">
-                            <div class="video-cover">
-                                <div id="mainBannerVideo"></div>
-                            </div>
-                        </div>
-                        <div class="bannerImgWrap">
-                            <div id="mainBannerImg">
-                                <div class="relative fix_area h-100"></div>
-                            </div>
-                        </div>
+        
+	  <section id="scroll-section-0" class="main-banner-section main-visual-sec payment-system">
+        <div class="mb-width-fix">
+            <!-- 비디오 영상을 담을 영역 -->
+            <div class="video-wrap">
+               <video id="localVideo" autoplay loop muted>
+        <source src="./브랜드영상 PC 버전.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <button id="muteButton" onclick="toggleMute()" style="z-index: 9999; position: relative; top:-60px; left:50px;">음소거</button>
+				<div class="text-overlay">
+        <h1 style="font-size: 48px">REBERRY CLINIC</h1><p style="font-size: 21px">다시 싱그럽게</p>
+    </div>
+                <!-- 기존 이미지 배경을 감싸는 영역
+                <div class="bannerImgWrap">
+                    <div id="mainBannerImg">
+                        <div class="relative fix_area h-100"></div>
                     </div>
-                    <div class="reservation-sec">
-                        <div class="reser-inner">
-                            <div class="input-wrap add__">
-                                <div class="input-inner">
-                                    <div class="title-wrap">
-                                        <h3>시술선택</h3>
-                                        <span class="num__" id="reservationTotalCount"></span>
-                                    </div>
-                                    <div class="info-wrap" id="addRsvnBtn">
-                                        <span><input type="text" placeholder="시술 선택" readonly style="background-color:#fff;"/></span>
-                                    </div>
-                                    <div class="modal-wrap" id="addReservationList"></div>
-
-                                    <div class="modal-wrap modal-wrap02" id="mainReservationList"></div>
-                                    <script Language="javaScript">getAjaxData('mainReservationList', '/_mainReservationList.php', 'D')</script>
-                                </div>
-                            </div>
-                            <div class="input-wrap date__">
-                                <div class="input-inner">
-                                    <div class="title-wrap">
-                                        <h3>예약날짜/시간</h3>
-                                    </div>
-                                    <div class="info-wrap" id="timeWraper">
-								<span>
-									<input type="text" id="reservationRealDate" name="reservationRealDate" readonly placeholder="0000-00-00" style="background-color:#fff;">
-								</span>
-                                        <span>
-									<input type="text" id="reservationRealTime" name="reservationRealTime" readonly placeholder="00:00" style="background-color:#fff;"/>
-								</span>
-                                    </div>
-                                    <div id="timeWrap"></div>
-                                </div>
-                            </div>
-                            <div class="input-wrap info__">
-                                <div class="input-inner">
-                                    <div class="title-wrap">
-                                        <h3>고객정보 입력</h3>
-                                    </div>
-                                    <div class="info-wrap">
-                                        <span><input type="text" name="reservationRealName" id="reservationRealName" readonly placeholder="홍길동" style="background-color:#fff;"/></span>
-                                        <span><input type="text" name="reservationRealGender" id="reservationRealGender" vaule="" readonly placeholder="여자" style="background-color:#fff;"/></span>
-                                        <span><input type="text" name="reservationRealMobile" id="reservationRealMobile" readonly placeholder="010-0000-0000" style="background-color:#fff;"/></span>
-                                    </div>
-                                    <div class="modal-wrap">
-                                        <div class="modal-inner">
-                                            <div class="content">
-                                                <div class="modal-tit">
-                                                    <div class="">고객정보 입력</div>
-                                                </div>
-                                                <div class=" ">
-                                                    <div class="form-wrap">
-                                                        <div class="form_box">
-                                                            <label for="" class="form-label">고객명</label>
-                                                            <div class="right-sec">
-                                                                <input type="text" id="reservationName" name="reservationName"/>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form_box">
-                                                            <label for="" class="form-label">성별</label>
-                                                            <div class="right-sec">
-                                                                <div class="radio-wrap">
-                                                                    <input type="radio" name="gender" id="female" value="female" checked style="display:none;">
-                                                                    <input type="radio" name="gender" id="male" value="male" style="display:none;">
-                                                                    <label for="female" class="cs-radio">여자</label>
-                                                                    <label for="male" class="cs-radio">남자</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form_box">
-                                                            <label for="" class="form-label">연락처</label>
-                                                            <div class="right-sec">
-                                                                <div class="sel_box">
-                                                                    <select class="num-col" id="reservationMobile1" name="reservationMobile1" tabindex="2">
-                                                                        <option value="010">010</option>
-                                                                        <!-- <option value="011">011</option> -->
-                                                                    </select>
-                                                                </div>
-                                                                <input type="number" class="num-col" id="reservationMobile2" name="reservationMobile2" oninput="mobileMaxLengthChk(this)" maxlength="4"/>
-                                                                <input type="number" class="num-col" id="reservationMobile3" name="reservationMobile3" oninput="mobileMaxLengthChk(this)" maxlength="4"/>
-                                                                <div class="btn-wrap">
-                                                                    <button type="button" class="btn-primary" id="sendBtn1" onClick="sendCertNo();" style="">
-                                                                        인증번호요청
-                                                                    </button>
-                                                                    <button type="button" class="btn-primary-outline" id="sendBtn2" onClick="sendCertNo();" style="display:none;">
-                                                                        재요청
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form_box">
-                                                            <label for="" class="form-label"></label>
-                                                            <div class="right-sec a-num">
-                                                                <input type="number" class="fm_ctrl f-col" id="chkAuthNum" name="chkAuthNum" value="" tabindex="5" readonly>
-                                                                <div class="btn-wrap">
-                                                                    <button type="button" class="btn-primary" id="certBtn" style="" onClick="checkCert();">인증확인</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="check-area scroll-sec agree_wrap">
-                                                            <div class="cs-checkbox" onclick="checkAll();">
-                                                                <input type="checkbox" id="chkAll">
-                                                                <label class="d-block" for="chkAll">
-                                                                    <span class="ll_tit">전체동의</span>
-                                                                </label>
-                                                            </div>
-                                                            <div class="cs-checkbox">
-                                                                <input type="checkbox" class="agreeChk" id="agree1" name="agree1" value="Y">
-                                                                <label class="d-block" for="agree1">
-                                                                    <span class="ll_tit">[필수] 서비스 이용 및 예약 신청을 위한 개인정보<br/>제공에 동의</span>
-                                                                    <a class="notice-txt" href="acceptPrivacy.php" target="_blank" title="">이용약관<i class="arrow-icon"></i></a>
-                                                                </label>
-                                                            </div>
-                                                            <div class="cs-checkbox">
-                                                                <input type="checkbox" class="agreeChk" id="agree3" name="agree3" value="Y">
-                                                                <label class="d-block" for="agree3">
-                                                                    <span class="ll_tit">[필수] 결제 취소 및 환불정책에 대한 동의</span>
-                                                                    <a class="notice-txt" href="cancelPolicy.php" target="_blank" title="">자세히<i class="arrow-icon"></i></a>
-                                                                </label>
-                                                            </div>
-                                                            <div class="cs-checkbox">
-                                                                <input type="checkbox" class="agreeChk" id="agree4" name="agree4" value="Y">
-                                                                <label class="d-block" for="agree4">
-                                                                    <span class="ll_tit">[필수] 전자결제대행 이용 동의</span>
-                                                                    <a class="notice-txt" href="https://pages.tosspayments.com/terms/user" target="_blank" title="">자세히<i class="arrow-icon"></i></a>
-                                                                </label>
-                                                            </div>
-                                                            <div class="cs-checkbox">
-                                                                <input type="checkbox" class="agreeChk" id="agree2"  name="agree2" value="Y">
-                                                                <label class="d-block" for="agree2">
-                                                                    <span class="ll_tit">[선택] 마케팅활용에 대한 동의</span>
-                                                                    <a class="notice-txt" href="acceptSite.php" target="_blank" title="">이용약관<i class="arrow-icon"></i></a>
-                                                                </label>
-                                                            </div>
-
-                                                                                                                        <span class="notice-txt txt-indent">※대표원장님 시술을 원하실 경우 특진비가 별도로 발생됩니다.</span>
-                                                            <span class="notice-txt txt-indent">※대표원장님 외 의료진 지정은 어려운 점 양해바랍니다.</span>
-                                                            <span class="notice-txt txt-indent">
-                                                                ※의료진과 상담만 진행하실 경우 진료비가 별도로 발생됩니다. <br />
-                                                                (당일 시술을 진행한다면 진료비는 제외됩니다.)
-                                                            </span>
-                                                                                                                    </div>
-                                                    </div>
-                                                    <button type="button" class="btn-area" onclick="showCustomerInfo(1)">확인</button>
-                                                </div>
-                                            </div>
-                                            <button type="button" class="close-btn">
-                                                <img src="./imges/close-btn.png" alt="">
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 결제시스템 -->
-                            <div class="input-wrap price__">
-                                <div class="input-inner">
-                                    <div class="title-wrap">
-                                        <h3>총 금액<span>(부가세 별도)</span></h3>
-                                        <span class="sub-txt">*방문결제는 내원시 진행</span>
-                                    </div>
-                                    <div class="payment-info">
-                                        <div class="payment online">
-                                            <span class="txt">온라인 결제</span>
-                                            <span class="price"><span class="color" id="online_price">0</span>원</span>
-                                        </div>
-                                        <div class="payment offline">
-                                            <span class="txt">방문 결제</span>
-                                            <span class="price"><span class="color" id="visit_price">0</span>원</span>
-                                        </div>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <span class="price"><span class="color" id="total_price">0</span>원</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 결제시스템 -->
-                        </div>
-                        <div class="oper-txt">
-                            <span class="icon"><img src="/imges/main/i-clock.svg" alt=""></span>
-                            <span>오늘 강남본점의 진료시간은 <span class="time">20:00</span> 까지입니다.</span>
-                            <span class="sub-txt">
-                            <a href="/map.php" title="">
-                                진료시간 및 위치 안내&nbsp;<img src="/imges/icon/arrow.svg" alt="">
-                            </a>
-                        </span>
-                        </div>
-                        <button class="btn" onclick="onlineFormWrite(this);">
-                            <span><img src="/imges/main/i-reservation.png" alt=""></span>
-                            <span>시술 예약</span>
-                        </button>
-                    </div>
-                </section>
-                    </form>
+                </div> -->
+            </div>
+		</div>
+	  </section>
         <!-- 실시간 예약 현황 -->
-        <section id="scroll-section-1" class="live-reser-sec">
+      <section id="scroll-section-1" class="live-reser-sec">
             <div class="live-inner">
                 <div class="fix-wrap">
                     <div class="icon-area">
@@ -1002,7 +773,7 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
             </div>
         </section>
         <!-- 실시간 예약 현황 -->
-        <section id="scroll-section-2" class="event-sec">
+      <section id="scroll-section-2" class="event-sec">
     <div id="particle">
         <div class="title-box">
             <h3>NEW EVENT</h3>
@@ -1163,7 +934,7 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
         </div>
     </div>
 </section>
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
 
     var eventSwiper = new Swiper(".eventSwiper", {
@@ -1195,9 +966,10 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
             prevEl: ".eventSwiper .swiper-button-prev",
         },
     });
-</script>        <section id="scroll-section-3" class="count-sec ">
-                    </section>
-        <section id="scroll-section-4" style="height: 1196px;" class="type-treat-sec">
+</script>
+	  <section id="scroll-section-3" class="count-sec ">
+	  </section>
+      <section id="scroll-section-4" style="height: 1196px;" class="type-treat-sec">
             <p id="textRotate" class="textRotateLocation"></p>
             <div class="title-box">
                 <h3>
@@ -1755,51 +1527,22 @@ BEST AWARDS!</span>
             </div>
         </section>
         <section id="scroll-section-10" class="map-sec">
-            <span class="top"><img src="/imges/main/contact-bg01.png" alt=""></span>
-            <span class="bottom"><img src="/imges/main/contact-bg02.png" alt=""></span>
+            <span class="top"><img src="/imges/contact-bg01.png" alt=""></span>
+            <span class="bottom"><img src="/imges/contact-bg02.png" alt=""></span>
             <div class="map-sec-inner">
                 <div class="map-area">
                     <div class="title-box">
                         <h3>
-                            <img src="/imges/main/contactUs.png" alt="contant us"/>
+                            <img src="./imges/contactUs.png" alt="contant us"/>
                         </h3>
                     </div>
                     <div class="mapWrap">
-                        <div id="map" class="map-box"></div>
-                        <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=kv6ks1a7vp"></script>
-                        <script>
-                            var map = new naver.maps.Map('map', {
-                                useStyleMap		:	true,
-                                center			:	new naver.maps.LatLng(37.49955986376665, 127.02634067976513),
-                                                                zoom			:	16,
-                                                                pinchZoom		:	false,
-                                scrollWheel		:	false,
-                                keyboardShortcuts:	false,
-                                disableDoubleTapZoom: true,
-                                disableDoubleClickZoom: true,
-                                disableTwoFingerTapZoom: true
-                            });
-
-                            var marker = new naver.maps.Marker({
-                                useStyleMap		:	true,
-                                position		:	new naver.maps.LatLng(37.49955986376665, 127.02634067976513),
-                                map				:	map
-                            });
-
-                            $("#map").on("click",function(e){
-                                e.preventDefault();
-
-                                map.setOptions({
-                                    draggable	:	true,
-                                    pinchZoom	:	true,
-                                    scrollWheel	:	true,
-                                    keyboardShortcuts: true,
-                                    disableDoubleTapZoom: false,
-                                    disableDoubleClickZoom: false,
-                                    disableTwoFingerTapZoom: false
-                                });
-                            });
-                        </script>
+                        <div id="map" class="map-box">
+							<iframe
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3779.000396449282!2d127.03772615204848!3d37.20621721439636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b43f8c29bb933%3A0xa2f3484d11ef61e5!2z6rK96riw64-EIO2ZlOyEseyLnCDrs5HsoJDrj5k!5e0!3m2!1sko!2skr!4v1703143777562!5m2!1sko!2skr"
+								width="100%" height="100%" style="border: 0; position: relative;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+							></iframe>
+						</div>
                     </div>
                 </div>
                 <div class="info-wrap">
@@ -1930,134 +1673,10 @@ BEST AWARDS!</span>
 	*/
 </script>
 
-<script type="application/ld+json">
-{
- "@context": "http://schema.org",
- "@type": "Person",
- "name": "톡스앤필 강남본점",
- "url": "http://www.toxnfill1.com",
- "sameAs": [
-   "https://www.instagram.com/toxnfill_gangnam/",
-   "https://www.facebook.com/toxnfill/",
-   "https://www.youtube.com/channel/UCFpFZkm7mclD-z_-j7FTUag"
- ]
-}
-</script>
-
     <!--	bottom End	-->
 </div>
 
-<!-- main video script -->
-<script src="/common/js/vimeo.player.js"></script>
-<script>
-    (function(){
-        var mainIframeOptions = {
-            id: 813497388,
-            controls: false,
-            autoplay: true,
-            muted: true,
-            loop: false
-        };
-        var mainPlayer				=	new Vimeo.Player('mainBannerVideo', mainIframeOptions);
-        var $mainBannerVideo		=	document.querySelector('#mainBannerVideo');
-        var $mainBannerImg			=	document.querySelector('#mainBannerImg');
-
-        mainPlayer.setVolume(0);
-        mainPlayer.on('play', function() {
-            $mainBannerImg.classList.add('imgOn');
-        });
-
-        if(!mainPlayer.play().__proto__){
-            $mainBannerImg.classList.add('imgOn');
-        }
-
-        mainPlayer.on('ended', function() {
-            $mainBannerVideo.classList.add('end');
-        });
-    })();
-</script>
-
 <div id="dimmer"></div>
-<!--swiper event 팝업 -->
-    <div id="mainTabPopup1" class="st-popup" role="alertdialog" aria-modal="true" aria-hidden="true">
-        <div class="stp-wrap" >
-            <div class="mainTabPopup autoPlay-swiper">
-                <div class="swiper-container">
-                    <div class="mainTabSlideWrap swiper-wrapper">
-						<div class="swiper-slide" data-title="진료 일정 안내">
-							<!-- 휴진 팝업 -->
-							<div class="stp-img closeDayPopup">
-								<a href="/noticeView.php?idx=26240&pno=1">
-									<img class="" src="https://intranet.bbgnetworks.com/uploadFiles/imgpopup/837/20231108124219_.jpg" alt="">
-								</a>
-								<div class="close-wrap">
-									<div class="close-swiper">
-										<ul class="swiper-wrapper">
-											<li class="swiper-slide close-box">
-												<div class="txt-wrap">
-													<div class="date-txt-wrap">
-														<div>
-															<span class="date">12.25 (월)</span>
-															<span class="holiday">크리스마스</span>
-														</div>
-													</div>
-													<div class="diag-txt-wrap">
-														<p class="close">휴진</p>
-													</div>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide" data-title="대표 원장님 예약 안내">
-							<div class="stp-img">
-								<img class="" src="https://intranet.bbgnetworks.com/uploadFiles/T00002/mainImg/20231204161947_15.jpg" alt="대표 원장님 예약 안내">
-							</div>
-						</div>
-						<div class="swiper-slide" data-title="수요이벤트">
-							<div class="stp-img">
-								<a href="http://www.toxnfill1.com/event#3436&utm_source=gnb_event&utm_medium=%EC%88%98%EC%9A" class="2clickPop"><img class="" src="https://intranet.bbgnetworks.com/uploadFiles/T00002/mainImg/20231218094741_13.jpg" alt=""></a>
-							</div>
-						</div>
-						<div class="swiper-slide" data-title="톡스앤필 연말 결산">
-							<div class="stp-img">
-								<a href="https://www.toxnfill1.com/detail.php?c=2833&i=21062" class="3clickPop"><img class="" src="https://intranet.bbgnetworks.com/uploadFiles/T00002/mainImg/20231130175359_11.jpg" alt=""></a>
-							</div>
-						</div>
-						<div class="swiper-slide" data-title="12월 강남본원 연말 결산">
-							<div class="stp-img">
-								<a href="http://www.toxnfill1.com/detail.php?c=2833&i=21187" class="4clickPop"><img class="" src="https://intranet.bbgnetworks.com/uploadFiles/T00002/mainImg/20231215171923_18.jpg" alt=""></a>
-							</div>
-						</div>
-						<div class="swiper-slide" data-title="강남본점 BEST AWARDS">
-							<div class="stp-img">
-								<a href="https://www.toxnfill1.com/detail.php?c=2833&i=21022" class="5clickPop"><img class="" src="https://intranet.bbgnetworks.com/uploadFiles/T00002/mainImg/20231130184839_16.jpg" alt=""></a>
-							</div>
-						</div>
-						<div class="swiper-slide" data-title="톡스앤필 반영구">
-							<div class="stp-img">
-								<a href="https://www.toxnfill1.com/event#3310" class="6clickPop"><img class="" src="https://intranet.bbgnetworks.com/uploadFiles/T00002/mainImg/20231212110557_12.jpg" alt=""></a>
-							</div>
-						</div>
-						<div class="swiper-slide" data-title="패스트트랙 도입">
-							<div class="stp-img">
-								<a href="http://www.toxnfill1.com/fastrack#2014" class="7clickPop"><img class="" src="https://intranet.bbgnetworks.com/uploadFiles/T00002/mainImg/20231019093132_20.jpg" alt=""></a>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-				<!-- Add Pagination -->
-				<div class="mainTabBottom swiper-pagination"></div>
-			</div>
-			<div class="stp-btn">
-				<button type="button" class="" onClick="closePopup('1', 1);">오늘은 그만 볼래요</button>
-				<button type="button" class="" onClick="closePopup('1', 2);">닫기</button>
-			</div>
-		</div>
-	</div>
 	<script src="./common/js/brachUi.js"></script>
 	<script src="./common/js/jquery-ui.min.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/jquery.marquee@1.6.0/jquery.marquee.min.js" type="text/javascript"></script>
@@ -2100,34 +1719,8 @@ BEST AWARDS!</span>
 
 </script>
 
-<!-- 지점메인 리뉴얼 -->
-
-<!--	카카오 친구 추가	-->
-<!-- <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> -->
-<script src="/common/js/kakao.min.js"></script>
-<script type="text/javascript">
-//<![CDATA[
-// 사용할 앱의 JavaScript 키를 설정해 주세요.
-Kakao.init("c984d1756cf41b18d6b98d30682f65bb");
-function addPlusFriend()
-{
-	Kakao.PlusFriend.addFriend({
-		plusFriendId			:	"id"														//	플러스친구 홈 URL에 명시된 id로 설정합니다.
-	});
-}
-
-function addBrandPlusFriend(kakaoPlusID)
-{
-	Kakao.PlusFriend.addFriend({
-		plusFriendId			:	kakaoPlusID																//	플러스친구 홈 URL에 명시된 id로 설정합니다.
-	});
-}
-//]]>
-</script><!--	//카카오 친구 추가	-->
-<!-- naver map search -->
-
     <!-- 눈 효과 -->
-    <!-- https://github.com/hcodes/snowflakes-->
+    <!-- https://github.com/hcodes/snowflakes
     <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
     <script>
         var sf = new Snowflakes({
@@ -2137,8 +1730,21 @@ function addBrandPlusFriend(kakaoPlusID)
             maxSize: 21, // Default: 18
         });
     </script>
-    <!-- //눈 효과 -->
+    //눈 효과 -->
+<script>
+    var video = document.getElementById("localVideo");
+    var muteButton = document.getElementById("muteButton");
 
+    function toggleMute() {
+        if (video.muted) {
+            video.muted = false;
+            muteButton.innerHTML = "음소거";
+        } else {
+            video.muted = true;
+            muteButton.innerHTML = "음소거 해제";
+        }
+    }
+</script>
 </body>
 </html>
 
