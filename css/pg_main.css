@@ -3414,10 +3414,7 @@
 
 /* scroll-section-6 */
 .amount-sec{
-	background-image: url("/imges/main/amount-sec-bg.jpg");
-	background-position: top center;
-	background-repeat: no-repeat;
-	background-size: cover;
+	background: #003210;
 }
 .amount-sec .title-box h3{
 	margin-bottom: 12px;

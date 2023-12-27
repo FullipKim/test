@@ -14,7 +14,7 @@
 <meta http-equiv="Cache-Control" content="no-cache">
 
 
-<title>톡스앤필 강남본점</title>
+<title></title>
 <link rel="canonical" href="//www.domain.com/">
 <meta name="keywords" content="키워드" />
 <meta name="description" content="설명" />
@@ -22,8 +22,8 @@
 <meta property="og:image" content="/imges/reberry_thumb.png">
 <meta property="og:locale" content="ko_KR" />
 <meta property="og:type" content="website"> 
-<meta property="og:site_name" content="톡스앤필 강남본점">
-<meta property="og:title" content="톡스앤필 강남본점">
+<meta property="og:site_name" content="리베리의원 병점">
+<meta property="og:title" content="리베리의원 병점">
 <meta property="og:description" content="디스크립션">
 <meta property="og:url" content="//domain.com">
 <meta name="twitter:card" content="summary">
@@ -152,40 +152,12 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
 </head>
 
 <body>
-<script language="JavaScript">
-    let priceSwiperA, shapeSwiper;
-
-
-    function getAjaxData(divID, goURL, list)
-    {
-        $.ajax({
-            url						:	goURL,
-            type					:	"POST",
-            data					:
-                {
-                    list            :   list,
-                },
-            dataType				:	"html",
-            contentType				:	"application/x-www-form-urlencoded; charset=UTF-8",
-            async					:	true,
-            success					:	function (data)
-            {
-                $( '#' + divID ).empty();
-                $( '#' + divID ).html(data);
-
-                if(divID == 'pricePackageList') newPriceSwiper();
-                if (divID =='categoryList') createShapeSwiper();
-
-            }
-        });
-    }
-</script>
 	
 <!-- 로딩화면 -->
 <div id="loadingWrap" class="loading-wrap" style="z-index: 999">
     <div class="inner">
-        <p class="left_txt txt__"><img src="./imges/main/Beauty.png" alt=""></p>
-        <p class="right_txt txt__"><img src="./imges/main/secret-key.png" alt=""></p>
+        <p class="left_txt txt__"><img src="./imges/left-img.png" alt=""></p>
+        <p class="right_txt txt__"><img src="./imges/right-img.png" alt=""></p>
     </div>
 </div>
 <script>
@@ -194,9 +166,9 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
 
     // 실행할 함수 정의
     function runIntroFunction() {
-        $('#loadingWrap .left_txt').animate({left: '50%'}, 700);
-        $('#loadingWrap .right_txt').animate({right: '50%'}, 700);
-        $('#loadingWrap').delay(1500).animate({opacity: '0'}, 1200, function(){
+        $('#loadingWrap .left_txt').animate({left: '50%'}, 600);
+        $('#loadingWrap .right_txt').animate({right: '50%'}, 600);
+        $('#loadingWrap').delay(1800).animate({opacity: '0'}, 1500, function(){
             $('#loadingWrap').css('display', 'none');
         });
     }
@@ -208,124 +180,7 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
     runIntroFunction();
 </script>
 <!-- datapicker 추가 파일 -->
-<script>
-    $(function() {
-    var disabledDays			=	["2023-12-25","2024-01-01"];   // 특정날짜 disabled : "yyyy-mm-dd", ...
-    var ablePeriod				=	90;				// 예약 가능한 기간 오늘 ~ ablePeriod
-    var numAblePeriod			=	String(ablePeriod);
-
-    $('#calendar').datepicker({
-    dateFormat				:	"yy-mm-dd",
-    inline					:	true,
-    firstDay				:	0,
-    showMonthAfterYear		:	true,
-    //numberOfMonths		:	[3,1],
-    monthNames				:	["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-    monthNamesShort			:	["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-    dayNames				:	["일", "월", "화", "수", "목", "금", "토"],
-    dayNamesMin				:	["일", "월", "화", "수", "목", "금", "토"],
-    dayNamesShort			:	["일", "월", "화", "수", "목", "금", "토"],
-    minDate					:	'0',															//	최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-    onSelect				:	function(dateText)
-{
-    $( '#reservationDate' ).val(dateText);
-    clickDateActive(event);
-    // getDateTime(dateText);																//	시간 가져오기
-},
-    beforeShowDay			:	function(date)
-{
-    var string			=	jQuery.datepicker.formatDate('yy-mm-dd', date);
-        return [ (date.getDay() != 0 && disabledDays.indexOf(string) == -1) ];
-    },
-});
-    //$('#calendar').datepicker('setDate', '+1M'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
-
-    $('#calendarNextMonth').datepicker({
-    dateFormat				:	"yy-mm-dd",
-    inline					:	true,
-    firstDay				:	0,
-    showMonthAfterYear		:	true,
-    //numberOfMonths		:	[3,1],
-    monthNames				:	["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-    monthNamesShort			:	["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-    dayNames				:	["일", "월", "화", "수", "목", "금", "토"],
-    dayNamesMin				:	["일", "월", "화", "수", "목", "금", "토"],
-    dayNamesShort			:	["일", "월", "화", "수", "목", "금", "토"],
-    onSelect				:	function(dateText)
-{
-    $( '#reservationDate' ).val(dateText);
-    clickDateActive(event);
-    getDateTime(dateText);																	//	시간 가져오기
-},
-    beforeShowDay: function(date)
-{
-    var string			=	jQuery.datepicker.formatDate('yy-mm-dd', date);
-        return [ (date.getDay() != 0 && disabledDays.indexOf(string) == -1) ];
-    },
-});
-    $('#calendarNextMonth').datepicker('setDate', '+1M'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
-
-    $('#calendar2NextMonth').datepicker({
-    dateFormat				:	"yy-mm-dd",
-    inline					:	true,
-    firstDay				:	0,
-    showMonthAfterYear		:	true,
-    //numberOfMonths		:	[3,1],
-    monthNames				:	["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-    monthNamesShort			:	["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-    dayNames				:	["일", "월", "화", "수", "목", "금", "토"],
-    dayNamesMin				:	["일", "월", "화", "수", "목", "금", "토"],
-    dayNamesShort			:	["일", "월", "화", "수", "목", "금", "토"],
-    onSelect				:	function(dateText)
-{
-    $( '#reservationDate' ).val(dateText);
-    clickDateActive(event);															//	시간 가져오기
-},
-    beforeShowDay			:	function(date)
-{
-    var string			=	jQuery.datepicker.formatDate('yy-mm-dd', date);
-        return [ (date.getDay() != 0 && disabledDays.indexOf(string) == -1) ];
-    },
-});
-    $('#calendar2NextMonth').datepicker('setDate', '+2M'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
-
-    $('#calendar3NextMonth').datepicker({
-    dateFormat				:	"yy-mm-dd",
-    inline					:	true,
-    firstDay				:	0,
-    showMonthAfterYear		:	true,
-    //numberOfMonths		:	[3,1],
-    monthNames				:	["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-    monthNamesShort			:	["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-    dayNames				:	["일", "월", "화", "수", "목", "금", "토"],
-    dayNamesMin				:	["일", "월", "화", "수", "목", "금", "토"],
-    dayNamesShort			:	["일", "월", "화", "수", "목", "금", "토"],
-    maxDate					:	numAblePeriod,
-    onSelect				:	function(dateText)
-{
-    $( '#reservationDate' ).val(dateText);
-    clickDateActive(event);
-    // getDateTime(dateText);														//	시간 가져오기
-},
-    beforeShowDay			:	function(date)
-{
-    var string			=	jQuery.datepicker.formatDate('yy-mm-dd', date);
-        return [ (date.getDay() != 0 && disabledDays.indexOf(string) == -1) ];
-    },
-});
-    $('#calendar3NextMonth').datepicker('setDate', '+3M'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
-
-    // 선택한 날짜 외 다른 달력의 포커스 삭제
-    $('#calendarNextMonth .ui-datepicker-calendar td a').removeClass('ui-state-active');
-    $('#calendar2NextMonth .ui-datepicker-calendar td a').removeClass('ui-state-active');
-    $('#calendar3NextMonth .ui-datepicker-calendar td a').removeClass('ui-state-active');
-
-    var clickDateActive			=	function(event) {
-    $('.ui-datepicker-calendar td a').not(event.target).removeClass('ui-state-active');
-};
-
-});
-</script><div id="web" class="branch-renew">
+<div id="web" class="branch-renew">
     <!--	top menu Start	-->
     <!-- 지점 리뉴얼 작업중 -->
 
@@ -339,10 +194,10 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
                 </button>
                 <ul class="opt-list">
                     <li>
-                        <a href="#" target="_blank"><span class="">톡스앤필 브랜드</span></a>
+                        <a href="#" target="_blank"><span class="">리베리의원 브랜드</span></a>
                     </li>
                     <li>
-                    	<a href="https://www.toxnfillacademy.com" target="_blank"><span class="">톡스앤필 뷰티아카데미</span></a>
+                    	<a href="https://www.toxnfillacademy.com" target="_blank"><span class="">리베리의원 뷰티아카데미</span></a>
                     </li> 
                     <li>
                         <a href="http://www.bbglab.co.kr/" target="_blank"><span class="">BBG LAB</span></a>
@@ -356,7 +211,7 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
 <!--
             <div class="select-wrap">
                 <button type="button" class="down-menu">
-                    전국 톡스앤필
+                    전국 리베리의원
                 </button>
                 <ul class="opt-list" id="branchDropdown">
                                                 <li>
@@ -364,7 +219,7 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
                             </li>
 
                                                                 <li>
-                                        <a href="https://www.toxnfill1.com" target="_blank">강남본점</a>
+                                        <a href="https://www.toxnfill1.com" target="_blank">병점</a>
                                     </li>
                                                                         <li>
                                         <a href="http://www.toxnfill17.com" target="_blank">강동천호점</a>
@@ -515,19 +370,19 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
 </button>
 </div>
 -->
-                    </div>
+        </div>
     </div>
     <div class="head_main">
         <div class="head_sub_bg"></div>
         <div class="nav_left">
 			<h1 class="logo">
 				<a href="index.php" class="logo-wrap">
-					<img src="./imges/reberry2.png" height="30vh" alt="logo" id="logo">
+					<img src="./imges/logo.png" height="30vh" alt="logo" id="logo">
 					<span class="logo_sub">리베리의원</span>
 				</a>
 			</h1>
 			<div class="main-menu-wrap">
-				<ul class="main_menu">
+				<ul class="main_menu" style="position: relative;left:-30%">
 					<li>
 						<a href="javascript:;" class="menu_item" onclick="depthLocation(this);">리베리</a>
 						<ul class="sub_menu">
@@ -574,63 +429,13 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
 						-->
 					</li>
 				</ul>
+				<ul class="main_menu">
+					<li><a href="#">YOUTUBE</a></li>
+					<li><a href="#">INSTAGRAM</a></li>
+					<li><a href="#">BLOG</a></li>
+				</ul>
 			</div>
 		</div>        
-    </div>
-    <div class="head_sub" style="display:none;">
-        <div class="fix_area">
-            <ul class="sub_menu">
-                <li class="cate">
-                    <ul class="">
-                                                    <li><a href="greetings.php">톡스앤필 3正</a></li>
-                                                                            <li><a href="staff.php">의사 & 직원 소개</a></li>
-                                                <li><a href="communityAction.php">학술활동</a></li>
-                        <li><a href="communityStudy.php">공부하는 톡스앤필</a></li>
-                                                    <li><a href="/communityBnA.php">전후사진</a></li>
-                            <li><a href="/communityVideo.php">톡스앤필 영상</a></li>
-                            <li><a href="/communityQnA.php">톡스앤필 Q&A</a></li>
-                                                <li><a href="notice.php">공지사항</a></li>
-                                                    <li><a href="membership.php">강남본점 멤버십 소개</a></li>
-                                                                            <li><a href="browProgram.php">강남본점 브로우 소개</a></li>
-                                                <li><a href="map.php">지점소개·오시는길</a></li>
-                        <li><a href="recruit.php">채용공고</a></li>
-                    </ul>
-                </li>
-                <li class="cate">
-                    <ul class="">
-                        <li><a href="#">시술안내/가격</a></li>
-                    </ul>
-                </li>
-                <li class="cate">
-                    <ul class="">
-                        <li><a href="event#">이벤트안내/가격</a></li>
-                    </ul>
-                </li>
-                                    <li class="cate">
-                        <ul class="">
-                            <li><a href="fastrack#">패스트트랙안내/가격</a></li>
-                        </ul>
-                    </li>
-                                <li class="cate">
-                    <ul class="">
-                        <li><a href="reservation.php">시술 예약하기</a></li>
-                        <li><a href="reservationCheck.php">예약 확인/변경/취소</a></li>
-                        <li><a href="cart.php">장바구니</a></li>
-                        <li><a href="recent.php">최근 본 시술</a></li>
-                    </ul>
-                </li>
-                                    <li class="cate">
-                        <ul class="">
-                            <li><a href="/communityBnA.php">전후사진</a></li>
-                        </ul>
-                    </li>
-                                <li class="cate">
-                    <ul class="">
-                        <li><a href="communityOpinion.php">칭찬/불만 접수</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
     </div>
 </div>
 
@@ -678,9 +483,9 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
         <source src="./브랜드영상 PC 버전.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <button id="muteButton" onclick="toggleMute()" style="z-index: 9999; position: relative; top:-60px; left:50px;">음소거</button>
+    <button id="muteButton" onclick="toggleMute()" style="border: none; z-index: 9999; position: absolute; top:75%; right: 5%;color: white; background-color: transparent;width: 50px; height: 50px"><img id="muteButtonImage" src="./imges/Mute.png" alt="음소거"/></button>
 				<div class="text-overlay">
-        <h1 style="font-size: 48px">REBERRY CLINIC</h1><p style="font-size: 21px">다시 싱그럽게</p>
+        <h1 style="font-size: 48px">REBERRY CLINIC</h1><p style="font-size: 21px">다시, 싱그럽게</p>
     </div>
                 <!-- 기존 이미지 배경을 감싸는 영역
                 <div class="bannerImgWrap">
@@ -692,11 +497,11 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
 		</div>
 	  </section>
         <!-- 실시간 예약 현황 -->
-      <section id="scroll-section-1" class="live-reser-sec">
+        <section id="scroll-section-1" class="live-reser-sec">
             <div class="live-inner">
                 <div class="fix-wrap">
                     <div class="icon-area">
-                        <img src="/imges/main/i-live.png" alt="">
+                        <span style="color: white;font-weight: 800;">LIVE</span>
                     </div>
                     <h3>
                         <span class="sub-tit">전 지점 최근 한 달 기준</span>
@@ -706,61 +511,61 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
                 </div>
                 <div class="flow-wrap">
                                             <div class="flow-item">
-                            <span class="branch_">강남본점</span>
+                            <span class="branch_">병점</span>
                             <span class="time_">15:12</span>
                             <span class="desc">박**님이 예약했어요!</span>
                         </div>
 
                                             <div class="flow-item">
-                            <span class="branch_">강남본점</span>
+                            <span class="branch_">병점</span>
                             <span class="time_">15:12</span>
                             <span class="desc">오**님이 예약했어요!</span>
                         </div>
 
                                             <div class="flow-item">
-                            <span class="branch_">강남본점</span>
+                            <span class="branch_">병점</span>
                             <span class="time_">15:10</span>
                             <span class="desc">가**님이 예약했어요!</span>
                         </div>
 
                                             <div class="flow-item">
-                            <span class="branch_">강남본점</span>
+                            <span class="branch_">병점</span>
                             <span class="time_">15:00</span>
                             <span class="desc">이**님이 예약했어요!</span>
                         </div>
 
                                             <div class="flow-item">
-                            <span class="branch_">강남본점</span>
+                            <span class="branch_">병점</span>
                             <span class="time_">14:58</span>
                             <span class="desc">최**님이 예약했어요!</span>
                         </div>
 
                                             <div class="flow-item">
-                            <span class="branch_">강남본점</span>
+                            <span class="branch_">병점</span>
                             <span class="time_">14:55</span>
                             <span class="desc">김**님이 예약했어요!</span>
                         </div>
 
                                             <div class="flow-item">
-                            <span class="branch_">강남본점</span>
+                            <span class="branch_">병점</span>
                             <span class="time_">14:50</span>
                             <span class="desc">이**님이 예약했어요!</span>
                         </div>
 
                                             <div class="flow-item">
-                            <span class="branch_">강남본점</span>
+                            <span class="branch_">병점</span>
                             <span class="time_">14:45</span>
                             <span class="desc">이**님이 예약했어요!</span>
                         </div>
 
                                             <div class="flow-item">
-                            <span class="branch_">강남본점</span>
+                            <span class="branch_">병점</span>
                             <span class="time_">14:43</span>
                             <span class="desc">박**님이 예약했어요!</span>
                         </div>
 
                                             <div class="flow-item">
-                            <span class="branch_">강남본점</span>
+                            <span class="branch_">병점</span>
                             <span class="time_">14:40</span>
                             <span class="desc">윤**님이 예약했어요!</span>
                         </div>
@@ -772,8 +577,8 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
                 </div>
             </div>
         </section>
-        <!-- 실시간 예약 현황 -->
-      <section id="scroll-section-2" class="event-sec">
+        <!-- 실시간 예약 현황// -->
+        <section id="scroll-section-2" class="event-sec">
     <div id="particle">
         <div class="title-box">
             <h3>NEW EVENT</h3>
@@ -793,7 +598,7 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
                                         <img src="./imges/event-top1.png" alt="">
                                     </span>
                                     <span class="rotate-icon">
-                                        <img src="./imgesnew-event-line.png" alt="">
+                                        <img src="./imges/new-event-line.png" alt="">
                                     </span>
                                 </div>
                                 <figure>
@@ -913,9 +718,9 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
                                         V라인과 탄력을 한번에!                                    </p>
                                     <div class="price-box">
                                         <span class="del__">69,000원</span>
-                                        <P class="price_">
+                                        <p class="price_">
                                             <span>35,000</span><span> 원 부터</span>
-                                        </P>
+                                        </p>
                                     </div>
                                 </div>
                             </a>
@@ -967,321 +772,19 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
         },
     });
 </script>
-	  <section id="scroll-section-3" class="count-sec ">
-	  </section>
-      <section id="scroll-section-4" style="height: 1196px;" class="type-treat-sec">
-            <p id="textRotate" class="textRotateLocation"></p>
-            <div class="title-box">
-                <h3>
-                    이럴 땐 이게
-                    <p>딱!<img src="./imges/i-text-deco.png" alt=""></p>
-                </h3>
-            </div>
-            <div class="trouble-sel">
-                <button class="select">
-                    <span class="select-txt">환절기 피부 컨디션 회복할땐 이게 딱!</span>
-                </button>
-                <ul class="selectList">
-					<li class="category-sel" value="1">환절기 피부 컨디션 회복할땐 이게 딱!</li>
-						<li class="category-sel" value="2">추운 겨울 급찐급빠할땐 이게 딱!</li>
-						<li class="category-sel" value="3">늘어진 피부에는 리프팅이 딱!</li>
-						<li class="category-sel" value="4">강남본점의 인기시술이 궁금하다면? 이게 딱!</li>
-						<li class="category-sel" value="5">콜라겐 재생이 필요할 땐 이게 딱!</li>
-				</ul>
-            </div>
-            <div class="shapeSwiper">
-                <div class="swiper-wrapper" id="categoryList">
-				  <div class="swiper-slide">
-						<figure id="square" class="frame">
-							<img class="cont-img" src="https://intranet.bbgnetworks.com/uploadFiles/T00002/eventImg/20230911172217_16.jpg" alt="톡스앤필">
-							<a href="/detail.php?c=20&i=16221" class="overlay-frame" onmouseover="mouseHoverStop();">
-								<figure class="overlay-inner">
-									<span>View more</span>
-									<img src="/imges/main/i-viewMore.png" alt="">
-								</figure>
-							</a>
-						</figure>
-						<div class="info_wrap">
-							<p class="info-ttl">속부터 촉촉해지는 물광주사, 릴리이드M</p>
-							<span class="info-sub">차세대 물광주사 릴리이드M</span>
-						</div>
-						<figure class="cont-bg">
-							<img src="/imges/main/shape-bg.png" alt="">
-						</figure>
-					</div>
-												<div class="swiper-slide">
-						<figure id="door" class="frame">
-							<img class="cont-img" src="https://intranet.bbgnetworks.com/uploadFiles/C00001/eventImg/20230911172150_16.jpg" alt="톡스앤필">
-							<a href="/detail.php?c=20&i=45" class="overlay-frame" onmouseover="mouseHoverStop();">
-								<figure class="overlay-inner">
-									<span>View more</span>
-									<img src="/imges/main/i-viewMore.png" alt="">
-								</figure>
-							</a>
-						</figure>
-						<div class="info_wrap">
-							<p class="info-ttl">물광/꿀광 피부를 원한다면</p>
-							<span class="info-sub">고농도 히알루론산을 주입하는 보습솔루션</span>
-						</div>
-						<figure class="cont-bg">
-							<img src="/imges/main/shape-bg.png" alt="">
-						</figure>
-					</div>
-												<div class="swiper-slide">
-						<figure id="circle" class="frame">
-							<img class="cont-img" src="https://intranet.bbgnetworks.com/uploadFiles/T00002/eventImg/20230911172545_16.jpg" alt="톡스앤필">
-							<a href="/detail.php?c=2630&i=16223" class="overlay-frame" onmouseover="mouseHoverStop();">
-								<figure class="overlay-inner">
-									<span>View more</span>
-									<img src="/imges/main/i-viewMore.png" alt="">
-								</figure>
-							</a>
-						</figure>
-						<div class="info_wrap">
-							<p class="info-ttl">RF:4# (알에프 포샵)</p>
-							<span class="info-sub">포샵한 것처럼 자연스러운 피부보정효과의 스킨부스터</span>
-						</div>
-						<figure class="cont-bg">
-							<img src="/imges/main/shape-bg.png" alt="">
-						</figure>
-					</div>
-												<div class="swiper-slide">
-						<figure id="oval" class="frame">
-							<img class="cont-img" src="https://intranet.bbgnetworks.com/uploadFiles/T00048/eventImg/20230911172446_16.jpg" alt="톡스앤필">
-							<a href="/detail.php?c=2630&i=16922" class="overlay-frame" onmouseover="mouseHoverStop();">
-								<figure class="overlay-inner">
-									<span>View more</span>
-									<img src="/imges/main/i-viewMore.png" alt="">
-								</figure>
-							</a>
-						</figure>
-						<div class="info_wrap">
-							<p class="info-ttl">쥬베룩</p>
-							<span class="info-sub">4세대 콜라겐 스킨부스터</span>
-						</div>
-						<figure class="cont-bg">
-							<img src="/imges/main/shape-bg.png" alt="">
-						</figure>
-					</div>
-						<div class="swiper-slide">
-						<figure id="square" class="frame">
-							<img class="cont-img" src="https://intranet.bbgnetworks.com/uploadFiles/T00002/eventImg/20230911172520_16.jpg" alt="톡스앤필">
-							<a href="/detail.php?c=2630&i=14918" class="overlay-frame" onmouseover="mouseHoverStop();">
-								<figure class="overlay-inner">
-									<span>View more</span>
-									<img src="/imges/main/i-viewMore.png" alt="">
-								</figure>
-							</a>
-						</figure>
-						<div class="info_wrap">
-							<p class="info-ttl">[런칭이벤트] 리쥬란HB plus</p>
-							<span class="info-sub">적은 통증 + 물광효과 + 피부 재생을 한번에!</span>
-						</div>
-						<figure class="cont-bg">
-							<img src="./imges/main/shape-bg.png" alt="">
-						</figure>
-					</div>
-				</div>
-            </div>
-        </section>
+      
         <a href="http://pf.kakao.com/#" target="_blank">
         <section id="scroll-section-5" class="sub-banner-sec">
                 <div class="logo-wrap">
-                    <figure class="kakao-img"><img src="./imges/banner-img.png" alt="톡스앤필"></figure>
-                    <figure><img src="./imges/banner-txt.png" alt="톡스앤필"></figure>
+                    <figure class="kakao-img"><img src="./imges/banner-img.png" alt="리베리의원"></figure>
+                    <figure><img src="./imges/banner-txt.png" alt="리베리의원"></figure>
                 </div>
-                <div class="bubbles">
-                    <div class="bubble1"></div>
-                    <div class="bubble2"></div>
-                    <div class="bubble3"></div>
-                    <div class="bubble4"></div>
-                    <div class="bubble5"></div>
-                    <div class="bubble6"></div>
-                    <div class="bubble7"></div>
-                    <div class="bubble8"></div>
-                    <div class="bubble9"></div>
-                    <div class="bubble10"></div>
-                </div>
+                
         </section>
         </a>
-        <section id="scroll-section-6" style="height: 1215px;" class="amount-sec">
-            <div class="title-box">
-                <h3>가볍게 경험하는 <img src="/imges/logo_w.svg" alt="톡스앤필"></h3>
-                <span>부담없이 즐기는 가격대별 인기 시술</span>
-            </div>
-            <div class="sec-priceSlider">
-                <div class="maxframe">
-                    <div class="fix_area">
-                        <div class="tab-btn-wrap">
-                                                            <button class="tab-button price-sel" data-price="0,20000" data-target="swiper1" data-type="pricePackageList"><span class="dot"></span>~1만원대</button>
-
-                                                                <button class="tab-button price-sel" data-price="20000,40000" data-target="swiper2" data-type="pricePackageList"><span class="dot"></span>2~3만원대</button>
-
-                                                                <button class="tab-button price-sel" data-price="40000,60000" data-target="swiper3" data-type="pricePackageList"><span class="dot"></span>4~5만원대</button>
-
-                                                                <button class="tab-button price-sel" data-price="60000,80000" data-target="swiper4" data-type="pricePackageList"><span class="dot"></span>6~7만원대</button>
-
-                                                                <button class="tab-button price-sel" data-price="80000,100000" data-target="swiper5" data-type="pricePackageList"><span class="dot"></span>8~9만원대</button>
-
-                                                                <button class="tab-button price-sel" data-price="100000,300000" data-target="swiper6" data-type="pricePackageList"><span class="dot"></span>10~20만원대</button>
-
-                                                        </div>
-                    </div>
-                    <div id="swiper1" class="swiper" style="display: block;">
-                        <div class="swiper-container priceSwiper">
-                            <div class="swiper-wrapper" id="pricePackageList">
-                                                                        <div class="swiper-slide">
-                                            <a href="#" class="cont">
-                                                <figure class="img-wrap">
-                                                    <img src="https://intranet.bbgnetworks.com/uploadFiles/C00001/eventImg/20231215120921.png" alt="">
-                                                </figure>
-                                                <div class="info-txt">
-                                                    <h3>매주 수요일 보톡스 세일한데이</h3>
-                                                    <span>주름은 팽팽하게!</span>
-                                                    <p>
-                                                                                                                    <small>30,000원</small>
-                                                                                                                <span>19,000</span>원  부터                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                                                                <div class="swiper-slide">
-                                            <a href="/detail.php?c=&i=21062" class="cont">
-                                                <figure class="img-wrap">
-                                                    <img src="https://intranet.bbgnetworks.com/uploadFiles/C00001/eventImg/20231129122749_1_1.jpg" alt="">
-                                                </figure>
-                                                <div class="info-txt">
-                                                    <h3>톡스앤필 연말 결산 이벤트</h3>
-                                                    <span>특별한 연말을 위해 준비했다!</span>
-                                                    <p>
-                                                                                                                    <small>29,000원</small>
-                                                                                                                <span>15,000</span>원  부터                                                    </p>
-										</div>
-									</a>
-								</div>
-								<div class="swiper-slide">
-									<a href="/detail.php?c=&i=21022" class="cont">
-										<figure class="img-wrap">
-											<img src="https://intranet.bbgnetworks.com/uploadFiles/C00001/eventImg/20231115111335_1.jpg" alt="">
-										</figure>
-										<div class="info-txt">
-											<h3>강남본점 BEST AWARDS</h3>
-											<span>강남본점에서 준비한 인기 시술!
-BEST AWARDS!</span>
-											<p>
-												<small>29,000원</small>
-												<span>15,000</span>원  부터</p>
-										</div>
-									</a>
-								</div>
-								<div class="swiper-slide">
-									<a href="/detail.php?c=&i=20382" class="cont">
-										<figure class="img-wrap">
-											<img src="https://intranet.bbgnetworks.com/uploadFiles/C00001/eventImg/20230927105600.png" alt="">
-										</figure>
-										<div class="info-txt">
-											<h3>눈썹/아이라인 반영구</h3>
-											<span>눈썹 정리는 하고 싶은데 어떻게 해야할 지 모른다면? 깔끔한 이미지 변신이 필요하다면?
-												톡스앤필 브로우가 해결 해 드릴께요. 톡스앤필 브로우!</span>
-											<p>
-											<small>12,000원</small>
-											<span>12,000</span>원  부터</p>
-										</div>
-									</a>
-								</div>
-								<div class="swiper-slide">
-									<a href="/detail.php?c=&i=14937" class="cont">
-										<figure class="img-wrap">
-											<img src="https://intranet.bbgnetworks.com/uploadFiles/T00002/eventImg/20220321102643_1.jpg" alt="">
-										</figure>
-										<div class="info-txt">
-											<h3>보톡스 총집합</h3>
-											<span>빛나는 2023년을 위해!</span>
-											<p>
-											<small>35,000원</small>
-											<span>19,000</span>원  부터</p>
-										</div>
-									</a>
-								</div>
-								<div class="swiper-slide">
-									<a href="/detail.php?c=&i=7291" class="cont">
-										<figure class="img-wrap">
-											<img src="https://intranet.bbgnetworks.com/uploadFiles/C00001/eventImg/20201229121040_1.jpg" alt="">
-										</figure>
-										<div class="info-txt">
-											<h3>잘나가는 인플루언서들의 V라인 비법</h3>
-											<span>V라인도 역시, 톡스앤필!</span>
-											<p><small>35,000원</small>
-												<span>19,000</span>원  부터</p>
-										</div>
-									</a>
-								</div>
-								<div class="swiper-slide">
-									<a href="/detail.php?c=&i=16335" class="cont">
-										<figure class="img-wrap">
-											<img src="https://intranet.bbgnetworks.com/uploadFiles/T00002/eventImg/20220728140852.png" alt="">
-										</figure>
-										<div class="info-txt">
-											<h3>톡스앤필! No마스크를 부탁해!</h3>
-											<span>마스크없어도 자신감 넘치는 비법!</span>
-											<p><span>15,000</span>원  부터</p>
-										</div>
-									</a>
-								</div>
-								<div class="swiper-slide">
-									<a href="/detail.php?c=&i=16222" class="cont">
-										<figure class="img-wrap">
-											<img src="https://intranet.bbgnetworks.com/uploadFiles/T00002/eventImg/20220718165654_1.jpg" alt="">
-										</figure>
-										<div class="info-txt">
-											<h3>RF:4# (알에프 포샵)</h3>
-											<span>포샵한 것처럼 자연스러운 피부보정효과의 스킨부스터</span>
-											<p>
-											<span>10,000</span>원  부터</p>
-										</div>
-									</a>
-                                </div>
-								<div class="swiper-slide">
-									<a href="/detail.php?c=&i=13538" class="cont">
-										<figure class="img-wrap">
-											<img src="https://intranet.bbgnetworks.com/uploadFiles/T00002/eventImg/20211122151435_1.jpg" alt="">
-										</figure>
-										<div class="info-txt">
-											<h3>호랑이 기운이 불끈! 항노화주사 모음전</h3>
-											<span>기운없어? 피곤해? 여길 눌러봐 ←←</span>
-											<p><span>4,500</span>원  부터</p>
-										</div>
-									</a>
-								</div>
-								<div class="swiper-slide">
-									<a href="/detail.php?c=&i=6229" class="cont">
-										<figure class="img-wrap">
-											<img src="https://intranet.bbgnetworks.com/uploadFiles/C00001/eventImg/20230221141744.png" alt="">
-										</figure>
-										<div class="info-txt">
-											<h3>울트라 V리프팅</h3>
-											<span>처진 피부, 탄력있게! 세월을 되돌리는 리프팅</span>
-											<p>
-											<span>5,000</span>원  부터</p>
-										</div>
-									</a>
-								</div>
-							</div>
-                            <div class="swiper-pagination">
-                                <span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0) scaleY(1); transition-duration: 300ms;"></span>
-
-                            </div>
-                            <div class="pagi-wrap">
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section id="scroll-section-7" class="treat-item-sec">
             <div class="bg-txt_">
-                <img src="./imges/treat-sec-bg.png" alt="톡스앤필">
+                <img src="./imges/treat-sec-bg.png" alt="리베리의원">
             </div>
             <div class="fix_area">
                 <div class="title-box">
@@ -1297,7 +800,7 @@ BEST AWARDS!</span>
 							<div class="txt_box">
 								<h4>TSMP 두피문신</h4>
 								<span>Technical - Scalp Micro Pigmentation
-톡스앤필 브로우 자체개발 T컬과 점으로 표현하는 시술법</span>
+리베리의원 브로우 자체개발 T컬과 점으로 표현하는 시술법</span>
 								<div class="price-box">
 									<span class="__point">6,000,000</span>
 									<span> 원  부터</span>
@@ -1403,7 +906,7 @@ BEST AWARDS!</span>
 									<img src="https://intranet.bbgnetworks.com/uploadFiles/T00002/eventImg/20220728140852.png" alt="">
 								</figure>
 								<div class="txt_box">
-																				<h4>톡스앤필! No마스크를 부탁해!</h4>
+																				<h4>리베리의원! No마스크를 부탁해!</h4>
 									<span>마스크없어도 자신감 넘치는 비법!</span>
 									<div class="price-box">
 										<span class="__point">15,000</span>
@@ -1477,7 +980,7 @@ BEST AWARDS!</span>
             </div>
             <a href="/#" class="pagi-wrap">
                 <figure class="pagi-img">
-                    <img src="./imges/btn-more.png" alt="톡스앤필">
+                    <img src="./imges/btn-more.png" alt="리베리의원">
                 </figure>
                 <div class="pagi-inner">
                     <span>더보기</span>
@@ -1485,6 +988,7 @@ BEST AWARDS!</span>
                 </div>
             </a>
         </section>
+<!--
         <section id="scroll-section-8" class="beaty-tip-sec">
                             <div class="sticky-wrap">
                     <div class="sticky-elem-bg"></div>
@@ -1499,12 +1003,13 @@ BEST AWARDS!</span>
                     </div>
                     
                 </div>
-                    </section>
+        </section>
+-->
         <section id="scroll-section-9" class="channel-sec">
             <div class="fix_area">
                 <div class="inner">
                     <figure>
-                        <img src="/imges/chaaner-txt.png" alt="">
+                        <img src="./imges/chaaner-txt.png" alt="">
                     </figure>
                     <ul class="sns-wrap">
                                                     <li>
@@ -1736,14 +1241,16 @@ BEST AWARDS!</span>
     var muteButton = document.getElementById("muteButton");
 
     function toggleMute() {
-        if (video.muted) {
-            video.muted = false;
-            muteButton.innerHTML = "음소거";
-        } else {
-            video.muted = true;
-            muteButton.innerHTML = "음소거 해제";
-        }
+    if (video.muted) {
+        video.muted = false;
+        document.getElementById("muteButtonImage").src = "./imges/Voice.png";
+        document.getElementById("muteButtonImage").alt = "음소거 해제";
+    } else {
+        video.muted = true;
+        document.getElementById("muteButtonImage").src = "./imges/Mute.png";
+        document.getElementById("muteButtonImage").alt = "음소거";
     }
+}
 </script>
 </body>
 </html>
