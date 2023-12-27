@@ -479,10 +479,19 @@ if ( "/?u" == "/m/" ) {																//	Mobile 주소로 접속 했다면
         <div class="mb-width-fix">
             <!-- 비디오 영상을 담을 영역 -->
             <div class="video-wrap">
-               <video id="localVideo" autoplay loop muted>
+               <iframe
+            id="youtubeVideo"
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/동영상ID"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+        ></iframe>
+		    <!-- <video id="localVideo" autoplay loop muted>
         <source src="./브랜드영상 PC 버전.mp4" type="video/mp4">
         Your browser does not support the video tag.
-    </video>
+    </video> -->
     <button id="muteButton" onclick="toggleMute()" style="border: none; z-index: 9999; position: absolute; top:75%; right: 5%;color: white; background-color: transparent;width: 50px; height: 50px"><img id="muteButtonImage" src="./imges/Mute.png" alt="음소거"/></button>
 				<div class="text-overlay">
         <h1 style="font-size: 48px">REBERRY CLINIC</h1><p style="font-size: 21px">다시, 싱그럽게</p>
